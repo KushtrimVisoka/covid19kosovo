@@ -11,25 +11,37 @@ covid19kosovo <- function(level = c("total", "municipality", "village")){
   level <- rlang::arg_match(level)
 
   if (level == "total"){
-    if (file.exists(data)){
-      file.remove(data)
-    }
-    data <- utils::read.csv("https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries.csv") %>%
+
+    url <- stringr::str_glue("https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries.csv")
+
+    rlang::inform(stringr::str_glue("Downloading data from 'url'..."))
+
+    data <- utils::read.csv(file = url) %>%
       dplyr::select(-1)
+
     return(data)
+
   } else if (level == "municipality"){
-    if (file.exists(data)){
-      file.remove(data)
-    }
-    data <- utils::read.csv("https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_municipality.csv") %>%
+
+    url <- stringr::str_glue("https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_municipality.csv")
+
+    rlang::inform(stringr::str_glue("Downloading data from 'url'..."))
+
+    data <- utils::read.csv(file = url) %>%
       dplyr::select(-1)
+
     return(data)
+
   } else if (level == "village"){
-    if (file.exists(data)){
-      file.remove(data)
-    }
-    data <- utils::read.csv("https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_cz.csv") %>%
+
+    url <- stringr::str_glue("https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_cz.csv")
+
+    rlang::inform(stringr::str_glue("Downloading data from 'url'..."))
+
+    data <- utils::read.csv(file = url) %>%
       dplyr::select(-1)
+
     return(data)
+
   }
 }
