@@ -6,6 +6,22 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
+The “covid19kosovo” R package provides datasets on the situation with
+Covid-19 in Kosovo.
+
+Datasets:
+
+-   Daily summaries of confirmed, healed, and death cases on the
+    national level.
+
+-   Daily summaries of confirmed cases by municipality.
+
+-   Daily summaries of confirmed cases by cadastral zone (village).
+
+Official source: [IKSHPK Facebook
+page](https://www.facebook.com/IKSHPK). I do not guarantee the accuracy
+of the data presented in this R package.
+
 ## Installation
 
 You can install the released version of covid19kosovo from GitHub with:
@@ -17,18 +33,16 @@ devtools::install_github("Kushtrimvisoka/covid19kosovo")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(covid19kosovo)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Daily summaries of confirmed, healed, and death cases on the national
+level.
 
 ``` r
 data <- covid19kosovo(level = "total") 
-#> Downloading data from 'url'...
+#> Downloading data from https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries.csv...
 
 head(data)
 #>         date confirmed healed dead confirmed_cumulative healed_cumulative
@@ -47,9 +61,11 @@ head(data)
 #> 6               0     20
 ```
 
+Daily summaries of confirmed cases by municipality.
+
 ``` r
 data <- covid19kosovo(level = "municipality") 
-#> Downloading data from 'url'...
+#> Downloading data from https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_municipality.csv...
 
 head(data)
 #>         date id municipality confirmed
@@ -61,9 +77,11 @@ head(data)
 #> 6 2020-03-16 15       Obiliq         1
 ```
 
+Daily summaries of confirmed cases by cadastral zone (village).
+
 ``` r
 data <- covid19kosovo(level = "village") 
-#> Downloading data from 'url'...
+#> Downloading data from https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_cz.csv...
 
 head(data)
 #>         date id municipality    cadastral_zone confirmed
@@ -74,6 +92,8 @@ head(data)
 #> 5 2020-03-15 30    Malishevë           Bubavec         1
 #> 6 2020-03-15 30    Malishevë     Llashkadrenoc         1
 ```
+
+## Map - Confirmed cases by municipality
 
 ``` r
 library(tidyverse)
@@ -87,6 +107,7 @@ library(tidyverse)
 #> x dplyr::lag()    masks stats::lag()
 library(sf)
 #> Linking to GEOS 3.8.1, GDAL 3.2.0, PROJ 7.2.0
+# devtools::install_github("Kushtrimvisoka/kosovomaps")
 library(kosovomaps)
 
 rksmap <- mapof("municip")
@@ -94,7 +115,7 @@ rksmap <- mapof("municip")
 data <- covid19kosovo(level = "municipality") %>% 
   group_by(id, municipality) %>% 
   summarise(confirmed = sum(confirmed))
-#> Downloading data from 'url'...
+#> Downloading data from https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_municipality.csv...
 #> `summarise()` regrouping output by 'id' (override with `.groups` argument)
 
 rksmap <- merge(rksmap, data)
@@ -108,6 +129,3 @@ p
 ```
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub!
