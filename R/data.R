@@ -14,7 +14,7 @@ covid19kosovo <- function(level = c("total", "municipality", "village")){
 
     url <- stringr::str_glue("https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries.csv")
 
-    rlang::inform(stringr::str_glue("Downloading data from 'url'..."))
+    rlang::inform(stringr::str_glue("Downloading data from {url}..."))
 
     data <- utils::read.csv(file = url) %>%
       dplyr::select(-1)
@@ -25,7 +25,7 @@ covid19kosovo <- function(level = c("total", "municipality", "village")){
 
     url <- stringr::str_glue("https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_municipality.csv")
 
-    rlang::inform(stringr::str_glue("Downloading data from 'url'..."))
+    rlang::inform(stringr::str_glue("Downloading data from {url}..."))
 
     data <- utils::read.csv(file = url) %>%
       dplyr::select(-1)
@@ -36,7 +36,7 @@ covid19kosovo <- function(level = c("total", "municipality", "village")){
 
     url <- stringr::str_glue("https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_cz.csv")
 
-    rlang::inform(stringr::str_glue("Downloading data from 'url'..."))
+    rlang::inform(stringr::str_glue("Downloading data from {url}..."))
 
     data <- utils::read.csv(file = url) %>%
       dplyr::select(-1)
