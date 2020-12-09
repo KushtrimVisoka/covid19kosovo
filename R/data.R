@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-covi19kosovo <- function(level = c("total", "municipality", "village")){
+covid19kosovo <- function(level = c("total", "municipality", "village")){
   level <- rlang::arg_match(level)
   if (level == "total"){
     data <- utils::read.csv("https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries.csv") %>%
