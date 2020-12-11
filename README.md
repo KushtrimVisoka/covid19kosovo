@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# covid19kosovo
+# covid19kosovo <img src='man/figures/logo.png' align="right" height="120" />
 
 <!-- badges: start -->
 <!-- badges: end -->
