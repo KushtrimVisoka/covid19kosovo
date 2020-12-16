@@ -1,7 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# covid19kosovo <img src='man/figures/logo.png' align="right" height="120" />
+# covid19kosovo <img src='man/figures/logo.png' align="right" height="139" />
+
+[![](https://img.shields.io/badge/devel%20version-0.0.1-green.svg)](https://github.com/Kushtrimvisoka/covid19kosovo)
+[![](https://img.shields.io/github/languages/code-size/Kushtrimvisoka/covid19kosovo.svg)](https://github.com/Kushtrimvisoka/covid19kosovo)
+[![](https://travis-ci.org/rstudio/rmarkdown.svg?branch=master)](https://travis-ci.org/rstudio/rmarkdown)
+[![License:
+MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -128,4 +134,4 @@ p <- ggplot()+
 p
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
