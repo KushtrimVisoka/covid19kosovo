@@ -28,3 +28,17 @@ covid19kosovo <- function(level = c("total", "municipality", "village")){
     return(data)
   }
 }
+
+#' Kosovo daily vaccination process
+#'
+#' @return
+#' @export
+#'
+#' @examples
+vaccination <- function(){
+  url <- "https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/kosovo_dailyvaccinations.csv"
+  rlang::inform(stringr::str_glue("Downloading data from {url}..."))
+  data <- utils::read.csv(file = url) %>%
+    dplyr::select(-1)
+  return(data)
+}

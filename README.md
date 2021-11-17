@@ -3,12 +3,6 @@
 
 # covid19kosovo <img src='man/figures/logo.png' align="right" height="139" />
 
-[![](https://img.shields.io/badge/devel%20version-0.0.1-green.svg)](https://github.com/Kushtrimvisoka/covid19kosovo)
-[![](https://img.shields.io/github/languages/code-size/Kushtrimvisoka/covid19kosovo.svg)](https://github.com/Kushtrimvisoka/covid19kosovo)
-[![](https://travis-ci.org/rstudio/rmarkdown.svg?branch=master)](https://travis-ci.org/rstudio/rmarkdown)
-[![License:
-MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)
-
 <!-- badges: start -->
 <!-- badges: end -->
 
@@ -48,7 +42,7 @@ level.
 
 ``` r
 data <- covid19kosovo(level = "total") 
-#> Downloading data from https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries.csv...
+#> Downloading data from https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/covid19kosovo_timeseries.csv...
 
 head(data)
 #>         date confirmed healed dead confirmed_cumulative healed_cumulative
@@ -71,7 +65,7 @@ Daily summaries of confirmed cases by municipality.
 
 ``` r
 data <- covid19kosovo(level = "municipality") 
-#> Downloading data from https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_municipality.csv...
+#> Downloading data from https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/covid19kosovo_timeseries_municipality.csv...
 
 head(data)
 #>         date id municipality confirmed
@@ -87,7 +81,7 @@ Daily summaries of confirmed cases by cadastral zone (village).
 
 ``` r
 data <- covid19kosovo(level = "village") 
-#> Downloading data from https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_cz.csv...
+#> Downloading data from https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/covid19kosovo_timeseries_cz.csv...
 
 head(data)
 #>         date id municipality    cadastral_zone confirmed
@@ -103,26 +97,27 @@ head(data)
 
 ``` r
 library(tidyverse)
-#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
-#> ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-#> ✓ tibble  3.0.4     ✓ dplyr   1.0.2
-#> ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-#> ✓ readr   1.4.0     ✓ forcats 0.5.0
+#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+#> ✓ tibble  3.1.6     ✓ dplyr   1.0.7
+#> ✓ tidyr   1.1.4     ✓ stringr 1.4.0
+#> ✓ readr   2.0.2     ✓ forcats 0.5.1
 #> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 library(sf)
-#> Linking to GEOS 3.8.1, GDAL 3.2.0, PROJ 7.2.0
+#> Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
 # devtools::install_github("Kushtrimvisoka/kosovomaps")
 library(kosovomaps)
+library(covid19kosovo)
 
 rksmap <- mapof("municip")
   
 data <- covid19kosovo(level = "municipality") %>% 
   group_by(id, municipality) %>% 
   summarise(confirmed = sum(confirmed))
-#> Downloading data from https://kushtrimvisoka.github.io/datasets/covid19kosovo_timeseries_municipality.csv...
-#> `summarise()` regrouping output by 'id' (override with `.groups` argument)
+#> Downloading data from https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/covid19kosovo_timeseries_municipality.csv...
+#> `summarise()` has grouped output by 'id'. You can override using the `.groups` argument.
 
 rksmap <- merge(rksmap, data)
 
@@ -134,4 +129,4 @@ p <- ggplot()+
 p
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />

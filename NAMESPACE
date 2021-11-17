@@ -2,4 +2,5 @@
 
 export("%>%")
 export(covid19kosovo)
+export(vaccination)
 importFrom(magrittr,"%>%")
