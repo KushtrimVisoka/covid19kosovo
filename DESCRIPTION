@@ -1,6 +1,6 @@
 Package: covid19kosovo
 Title: Covid19 Dataset - Kosovo
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Kushtrim",
            family = "Vusoka",
@@ -10,11 +10,10 @@ Authors@R:
 Description: Permes kesaj mund te merrni te dhenat ditore te rasteve me Covid-19 ne Kosove. Te dhenat jane nxjerre nga faqja e IKSHPK-se ne Facebook. Te dhenat nuk jane zyrtare, andaj nuk garantojme dhe nuk marrim pergjegjesi per saktesine e te dhenave.  
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Imports: rlang, utils, magrittr, dplyr, stringr
 NeedsCompilation: no
-Packaged: 2020-12-16 19:29:29 UTC; kushtrimvisoka
+Packaged: 2021-11-17 17:55:00 UTC; kushtrimvisoka
 Author: Kushtrim Vusoka [aut, cre] (YOUR-ORCID-ID)
 Maintainer: Kushtrim Vusoka <kushtrim.visoka@gmail.com>
