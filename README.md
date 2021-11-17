@@ -93,6 +93,22 @@ head(data)
 #> 6 2020-03-15 30    Malishevë     Llashkadrenoc         1
 ```
 
+Daily vaccination process
+
+``` r
+data <- vaccination()
+#> Downloading data from https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/kosovo_dailyvaccinations.csv...
+
+head(data)
+#>         date daily_vaccinated one_dose two_doses total_doses
+#> 1 2021-05-30             1120       NA         0       64776
+#> 2 2021-05-31             2318       NA         0       67094
+#> 3 2021-06-01             2595       NA         0       69686
+#> 4 2021-06-02             2955       NA         0       72637
+#> 5 2021-06-03             2915       NA         0       75553
+#> 6 2021-06-04             2922       NA         0       78477
+```
+
 ## Map - Confirmed cases by municipality
 
 ``` r
@@ -129,4 +145,4 @@ p <- ggplot()+
 p
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
