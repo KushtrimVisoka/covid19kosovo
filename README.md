@@ -6,6 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
+This package is no longer updated. Data available from 13.03.2020 to 06.02.2022.
+
 The “covid19kosovo” R package provides the latest available public data
 on Covid-19 situation in Kosovo.
 
