@@ -6,19 +6,17 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-This package is no longer updated. Data available from 13.03.2020 to 06.02.2022.
-
 The “covid19kosovo” R package provides the latest available public data
 on Covid-19 situation in Kosovo.
 
 Datasets:
 
--   Daily summaries of confirmed, healed, and death cases on the
-    national level.
+- Daily summaries of confirmed, healed, and death cases on the national
+  level.
 
--   Daily summaries of confirmed cases by municipality.
+- Daily summaries of confirmed cases by municipality.
 
--   Daily summaries of confirmed cases by cadastral zone (village).
+- Daily summaries of confirmed cases by cadastral zone (village).
 
 Official source: [IKSHPK Facebook
 page](https://www.facebook.com/IKSHPK). I do not guarantee the accuracy
@@ -26,10 +24,11 @@ of the data presented in this R package.
 
 ## Installation
 
-You can install the released version of covid19kosovo from GitHub with:
+You can install the released version of ‘covid19kosovo’ from GitHub
+with:
 
 ``` r
-# install.library("devtool)
+# install.packages("devtools)
 devtools::install_github("Kushtrimvisoka/covid19kosovo")
 ```
 
@@ -44,7 +43,8 @@ level.
 
 ``` r
 data <- covid19kosovo(level = "total") 
-#> Downloading data from https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/covid19kosovo_timeseries.csv...
+#> Downloading data from
+#> https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/covid19kosovo_timeseries.csv...
 
 head(data)
 #>         date confirmed healed dead confirmed_cumulative healed_cumulative
@@ -67,7 +67,8 @@ Daily summaries of confirmed cases by municipality.
 
 ``` r
 data <- covid19kosovo(level = "municipality") 
-#> Downloading data from https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/covid19kosovo_timeseries_municipality.csv...
+#> Downloading data from
+#> https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/covid19kosovo_timeseries_municipality.csv...
 
 head(data)
 #>         date id municipality confirmed
@@ -83,7 +84,8 @@ Daily summaries of confirmed cases by cadastral zone (village).
 
 ``` r
 data <- covid19kosovo(level = "village") 
-#> Downloading data from https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/covid19kosovo_timeseries_cz.csv...
+#> Downloading data from
+#> https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/covid19kosovo_timeseries_cz.csv...
 
 head(data)
 #>         date id municipality    cadastral_zone confirmed
@@ -99,32 +101,33 @@ Daily vaccination process
 
 ``` r
 data <- vaccination()
-#> Downloading data from https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/kosovo_dailyvaccinations.csv...
+#> Downloading data from
+#> https://raw.githubusercontent.com/Kushtrimvisoka/datasets/main/kosovo_dailyvaccinations.csv...
 
 head(data)
-#>         date daily_vaccinated one_dose two_doses total_doses
-#> 1 2021-05-30             1120       NA         0       64776
-#> 2 2021-05-31             2318       NA         0       67094
-#> 3 2021-06-01             2595       NA         0       69686
-#> 4 2021-06-02             2955       NA         0       72637
-#> 5 2021-06-03             2915       NA         0       75553
-#> 6 2021-06-04             2922       NA         0       78477
+#>         date daily_vaccinated one_dose two_doses three_doses total_doses
+#> 1 2021-05-30             1120       NA         0          NA       64776
+#> 2 2021-05-31             2318       NA         0          NA       67094
+#> 3 2021-06-01             2595       NA         0          NA       69686
+#> 4 2021-06-02             2955       NA         0          NA       72637
+#> 5 2021-06-03             2915       NA         0          NA       75553
+#> 6 2021-06-04             2922       NA         0          NA       78477
 ```
 
 ## Map - Confirmed cases by municipality
 
 ``` r
 library(tidyverse)
-#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-#> ✓ tibble  3.1.6     ✓ dplyr   1.0.7
-#> ✓ tidyr   1.1.4     ✓ stringr 1.4.0
-#> ✓ readr   2.0.2     ✓ forcats 0.5.1
+#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+#> ✔ ggplot2 3.4.0      ✔ purrr   1.0.0 
+#> ✔ tibble  3.1.8      ✔ dplyr   1.0.10
+#> ✔ tidyr   1.2.1      ✔ stringr 1.5.0 
+#> ✔ readr   2.1.3      ✔ forcats 0.5.2 
 #> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-#> x dplyr::filter() masks stats::filter()
-#> x dplyr::lag()    masks stats::lag()
+#> ✖ dplyr::filter() masks stats::filter()
+#> ✖ dplyr::lag()    masks stats::lag()
 library(sf)
-#> Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
+#> Linking to GEOS 3.10.2, GDAL 3.4.2, PROJ 8.2.1; sf_use_s2() is TRUE
 # devtools::install_github("Kushtrimvisoka/kosovomaps")
 library(kosovomaps)
 library(covid19kosovo)
