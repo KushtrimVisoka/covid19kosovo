@@ -1,13 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# covid19kosovo <img src='man/figures/logo.png' align="right" height="139" />
+# covid19kosovo <img src="man/figures/logo.png" align="right" height="139"/>
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The “covid19kosovo” R package provides the latest available public data
-on Covid-19 situation in Kosovo.
+The “covid19kosovo” R package offers data on the Covid-19 situation in
+Kosovo, including daily totals of confirmed cases, recovered patients,
+and deaths at the national level, as well as by municipality and
+cadastral zone. However, please note that this package is no longer
+being updated and the data provided is only from March 13th, 2020 to
+February 6th, 2022. Additionally, the information is sourced from the
+[IKSHPK Facebook page](https://www.facebook.com/IKSHPK) page and its
+accuracy cannot be guaranteed.
 
 Datasets:
 
@@ -18,17 +24,21 @@ Datasets:
 
 - Daily summaries of confirmed cases by cadastral zone (village).
 
-Official source: [IKSHPK Facebook
-page](https://www.facebook.com/IKSHPK). I do not guarantee the accuracy
-of the data presented in this R package.
-
 ## Installation
 
-You can install the released version of ‘covid19kosovo’ from GitHub
-with:
+To install the R package ‘covid19kosovo’ from Github, you will need to
+have the devtools package installed. If you do not have devtools
+installed, you can install it by running the following command:
 
 ``` r
-# install.packages("devtools)
+install.packages("devtools")
+```
+
+Once ‘devtools’ is installed, you can use the ‘install_github()’
+function to install the ‘covid19kosovo’ package. The basic syntax for
+installing a package from Github using ‘install_github()’ is:
+
+``` r
 devtools::install_github("Kushtrimvisoka/covid19kosovo")
 ```
 
